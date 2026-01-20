@@ -86,7 +86,7 @@ TVHClient::~TVHClient()
 
 const QString TVHClient::baseUrl() const
 {
-    return QStringLiteral("%1:%2").arg(m_hostname, QString::number(m_port));
+    return m_baseUrl;
 }
 
 ChannelsModel *TVHClient::channelsModel()
