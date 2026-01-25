@@ -86,6 +86,7 @@ Page {
 
             delegate: ChannelListDelegate {
                 id: delegate
+                pageActive: page.status === PageStatus.Active
 
                 menu: ContextMenu {
                     MenuItem {

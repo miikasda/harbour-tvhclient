@@ -7,6 +7,7 @@ import "../components/"
 
 ListItem {
     id: delegate
+    property bool pageActive: true
 
     contentHeight: contentColumn.height + separatorTop.height + Theme.paddingSmall
 
@@ -101,6 +102,7 @@ ListItem {
                     recording: model.recording
                     start: model.currentStart
                     stop: model.currentStop
+                    active: delegate.pageActive
                 }
 
                 Row {
