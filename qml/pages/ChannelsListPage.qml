@@ -124,6 +124,7 @@ Page {
         if (status === PageStatus.Active) {
             TVHClient.channelsModel().refresh()
             pageStack.pushAttached(Qt.resolvedUrl("FavoritesListPage.qml"))
+            TVHClient.channelsModel().active = true
 
             if (TVHClient.hostname.length === 0) {
                 TVHClient.channelsModel().active = false
@@ -132,7 +133,8 @@ Page {
             } else {
                 if (TVHClient.states === TVHClient.StateUninitialized) TVHClient.fetchData()
             }
+        } else if (status === PageStatus.Inactive) {
+            TVHClient.channelsModel().active = false
         }
     }
-    onVisibleChanged: TVHClient.channelsModel().active = visible
 }
