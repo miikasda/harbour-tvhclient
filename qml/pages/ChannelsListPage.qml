@@ -121,6 +121,7 @@ Page {
 
     onStatusChanged: {
         if (status === PageStatus.Active) {
+            TVHClient.channelsModel().refresh()
             pageStack.pushAttached(Qt.resolvedUrl("FavoritesListPage.qml"))
 
             if (TVHClient.hostname.length === 0) {
