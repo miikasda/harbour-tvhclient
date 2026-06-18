@@ -50,6 +50,7 @@ Page {
 
                 label: qsTr("Password")
 
+                text: TVHClient.password
                 readOnly: TVHClient.password.length > 0
             }
         }
