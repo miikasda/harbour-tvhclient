@@ -22,7 +22,7 @@ Page {
 
         MediaPlayer {
             id: videoPlayer
-            source: TVHClient.hostname + ":" + TVHClient.port + url
+            source: TVHClient.baseUrl() + url
             autoPlay: true
 
             onError: console.log(errorString)
@@ -72,5 +72,4 @@ Page {
 
     onStatusChanged: keepAlive.preventBlanking = (status === PageStatus.Active)
 }
-
 
