@@ -86,6 +86,7 @@ Page {
 
             delegate: ChannelListDelegate {
                 id: delegate
+                pageActive: page.status === PageStatus.Active
 
                 menu: ContextMenu {
                     MenuItem {
@@ -121,8 +122,10 @@ Page {
 
     onStatusChanged: {
         if (status === PageStatus.Active) {
+            TVHClient.channelsModel().active = true
             pageStack.pushAttached(Qt.resolvedUrl("RecordingsPage.qml"))
+        } else if (status === PageStatus.Inactive) {
+            TVHClient.channelsModel().active = false
         }
     }
-    onVisibleChanged: TVHClient.channelsModel().active = visible
 }
